@@ -1,5 +1,5 @@
 {
-  "name": "@lunarr/vlc-player",
+  "name": "@al2gether/vlc-player",
   "version": "1.0.3",
   "description": "VLC Player for React Native",
   "main": "index.js",
@@ -23,7 +23,7 @@
   "author": "Sayem Chowdhury",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lunarr-app/vlc-player.git"
+    "url": "git+https://github.com/Al2gether90/vlc-player.git"
   },
   "license": "MIT",
   "peerDependencies": {
