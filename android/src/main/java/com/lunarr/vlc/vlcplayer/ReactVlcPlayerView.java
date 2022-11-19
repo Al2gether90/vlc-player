@@ -23,7 +23,9 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 
-import org.videolan.libvlc.IVLCVout;
+import org.videolan.libvlc.interfaces.IVLCVout;
+import org.videolan.libvlc.interfaces.IMedia;
+
 import org.videolan.libvlc.LibVLC;
 import org.videolan.libvlc.Media;
 import org.videolan.libvlc.MediaPlayer;
@@ -324,7 +326,7 @@ class ReactVlcPlayerView extends TextureView implements
 
             if(initOptions != null){
                 ArrayList options = initOptions.toArrayList();
-                for(int i=0; i < options.size(); i++){
+                for(int i=0; i < options.size() - 1 ; i++){
                     String option = (String)options.get(i);
                     cOptions.add(option);
                 }
@@ -370,7 +372,7 @@ class ReactVlcPlayerView extends TextureView implements
             //添加media  option
             if(mediaOptions != null){
                 ArrayList options = mediaOptions.toArrayList();
-                for(int i=0; i < options.size(); i++){
+                for(int i=0; i < options.size() - 1 ; i++){
                     String option = (String)options.get(i);
                      m.addOption(option);
                 }
@@ -562,7 +564,7 @@ class ReactVlcPlayerView extends TextureView implements
     public void getMetadata() {
         if(mMediaPlayer != null){
           WritableMap map = Arguments.createMap();
-          Media media = mMediaPlayer.getMedia();
+          IMedia media = mMediaPlayer.getMedia();
           String artwork = media.getMeta(Media.Meta.ArtworkURL);
 
           map.putString("type","Metadata");
